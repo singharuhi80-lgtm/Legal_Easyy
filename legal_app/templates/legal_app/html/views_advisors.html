@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>services page</title>
+   {% include 'legal_app/common/common_css.html' %}
+   <style>
+      .flex-container {
+         display: flex;
+         width:100%;
+         height: 400px;
+         /* background-color: bisque; */
+         flex-wrap: wrap;
+      }
+
+      .item-div {
+         width: 250px;
+         height: 350px;
+         background-color:rgb(193, 236, 222);
+         margin-left: 20px;
+      }
+
+      .item-div img {
+         width: 100%;
+         height: 100px;
+      }
+   </style>
+
+</head>
+
+<body>
+   <div class="main-div">
+
+
+      <!--nav bar code start-->
+      {% include 'legal_app/common/header.html' %}
+      <!--nav bar code end-->
+
+      <h2 style="text-align: center;">Advisors</h2>
+      <div class="flex-container">
+
+         {% for s in advisor_key %}
+
+         <div class="item-div">
+
+            <img src="/media/{{s.profile_pic}}" alt="">
+            <h6>AdvisoreName:{{s.name}}</h6>
+            <h6>AdvisorEmail:{{s.email}}</h6>
+            
+            <h6>AdvisorQualification:{{s.qualification}}</h6>
+            <!-- <h6>AdvisorProfile_pic:{{s.profile_pic}}</h6> -->
+            <h6>AdvisorExperience:{{s.experience}}</h6>
+            <h6>AdvisorSkills:{{s.skills}}</h6>
+            <h6>AdvisorService_type:{{s.service_type}}</h6>
+
+         </div>
+         {%endfor%}
+
+      </div>
+
+   </div>
+   <!--footer code start-->
+
+   {% include 'legal_app/common/footer.html' %}
+   <!--footer code end-->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>

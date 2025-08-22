@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  {% include 'legal_app/common/common_css.html' %}
+  <style>
+    .flex-container {
+      display: flex;
+      width: 100;
+      gap: 20px;
+
+      justify-content: center;
+    }
+
+    .div-img {
+      width: 25%;
+      height: 250px;
+
+      /* border: 2px solid red; */
+      border-radius: 30%;
+
+    }
+
+    .div-form {
+      width: 44%;
+      height: 300px;
+      background-color: blueviolet;
+      /* border: 2px solid red; */
+      padding: 45px;
+
+    }
+
+    .div-img img {
+      width: 100%;
+      height: 100%;
+      /* border: 2px solid red; */
+      /* border-radius: 30%; */
+
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!--nav bar code start-->
+  {% include 'legal_app/common/header.html' %}
+  <!--nav bar code end-->
+    {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert"style="width:50%;margin:auto; text-align:center">
+  <strong>{{m}}</strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+     
+        {% endfor %}
+
+        {% endif %}
+
+  <div class="main-div">
+    <form action="/login/"method=post>
+      {% csrf_token %}
+
+    <div class="text-center" style="margin:auto">
+      <img src="{% static 'legal_app/images/Login.gif' %}">
+    </div>
+    <!-- flex box code start -->
+
+    <div class="flex-container">
+
+      <div class="div-img">
+        <img src="{% static 'legal_app/images/law.png' %}">
+      </div>
+      <div class="div-form">
+
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="fa-solid fa-envelope"></i> </span>
+          <input type="text" class="form-control" placeholder="Email" name="Email" required>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text"><i class="fa-solid fa-lock"></i> </span>
+          <input type="password" class="form-control" placeholder="Passsword" name="Password" required>
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-danger">Submit</button>
+</form>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <!-- flex box code end -->
+  </div>
+
+
+
+  <!--footer code start-->
+  {% include 'legal_app/common/footer.html' %}
+  <!--footer code end-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserHome</title>
+  {% include 'legal_app/common/common_css.html' %}
+
+
+</head>
+
+<body>
+
+  <!--navbar code start-->
+  {% include 'legal_app/user/user_header.html' %}
+
+        {% if messages %}
+        {% for m in messages %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert"
+            style="width:50%;margin:auto; text-align:center;margin-top: 100px;">
+            <strong>{{m}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+  <!--navbar code end-->
+
+  <div class="main-div">
+
+    <form action="/upload_document/" method="post" enctype="multipart/form-data">
+      {%csrf_token%}
+      <div class="d-flex justify-content-center">
+
+        <div class="container w-50 " style="margin-top: 150px;">
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput"> Enter Email here</label>
+          </div>
+       
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="text" name="name">
+            <label for="floatingInput"> Enter Name here</label>
+            </div>
+          <div class="form-floating mb-3">
+            <input type="textarea" class="form-control" id="floatingInput" placeholder="text" name="description">
+            <label for="floatingInput"> Description </label>
+          </div>
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Upload Document Pic Here</label>
+            <input class="form-control" type="file" id="formFile" name="document_pic">
+          </div>
+      
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+      </div>
+        
+      </form>
+  </div>
+  <!--footer code start-->
+
+   {% include 'legal_app/common/footer.html' %}
+   <!--footer code end-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>
+
+
+
+
+
+
+

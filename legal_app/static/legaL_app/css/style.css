@@ -1,0 +1,17 @@
+body,html
+{
+min-height:100vh;     
+display:flex;
+flex-direction:column;
+
+
+}
+.main-div{
+    flex:1;
+}
+
+*{
+    /* font-family:cursive; */
+    box-sizing: border-box;
+
+}
